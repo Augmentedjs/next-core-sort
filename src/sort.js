@@ -1,14 +1,17 @@
 /**
- * Sorts an array of objects by propery in object
+ * Sorts an array of objects by propery in object (not a deep property)
  * @function sortObjects
- * @memberof Utility
  * @param {array} array The object array to sort
  * @param {object} key The property to sort by
+ * @param {boolean} descending Reverse the order
  * @returns {array} The sorted array
  */
-export const sortObjects = (array, key) => {
+export const sortObjects = (array, key, descending) => {
   return array.sort( (a, b) => {
     const x = a[key], y = b[key];
+    if (descending) {
+      return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+    }
     return ((x < y) ? -1 : ((x > y) ? 1 : 0));
   });
 };
@@ -16,7 +19,6 @@ export const sortObjects = (array, key) => {
 /**
  * Split the array into halves and merge them recursively
  * @function mergeSort
- * @memberof Utility
  * @param {array} array The array to sort
  * @returns {array} The sorted array
  */
@@ -30,13 +32,13 @@ export const mergeSort = (arr) => {
   const left = arr.slice(0, middle); // items on the left side
   const right = arr.slice(middle); // items on the right side
 
-  return merge(mergeSort(left), mergeSort(right));
+  return _merge(mergeSort(left), mergeSort(right));
 };
 
 /*
  * compare the arrays item by item and return the concatenated result
  */
-const merge = (left, right) => {
+const _merge = (left, right) => {
   let result = [];
   let indexLeft = 0;
   let indexRight = 0;
@@ -56,7 +58,6 @@ const merge = (left, right) => {
 /**
  * Quick Sort implimentation for Arrays -
  * @function QuickSort
- * @memberof Utility
  * @param {Array} arr Array to Sort
  * @returns {Array} Returns a sorted array
  */
@@ -83,7 +84,6 @@ export const quickSort = (arr) => {
  * Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time.
  * It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
  * @function mergeSort
- * @memberof Utility
  * @param {array} array The array to sort
  * @returns {array} The sorted array
  */
@@ -111,7 +111,6 @@ export const insertionSort = (unsortedList) => {
 /**
  * Simple sorting algorithm that repeatedly steps through the list to be sorted, compares each pair of adjacent items and swaps them if they are in the wrong order.
  * @function mergeSort
- * @memberof Utility
  * @param {array} array The array to sort
  * @returns {array} The sorted array
  */

@@ -7,18 +7,26 @@ describe("Given Sorting Sort", () => {
 	});
 
   describe("Given object sort", () => {
-		it("can sort an array", () => {
+		it("can sort an array", async () => {
 			const o = [{"A": "B"}, {"A": "D"}, {"A": "C"}];
-			const a = Sort.sortObjects(o, "A");
+			const a = await Sort.sortObjects(o, "A");
 			expect(a).not.to.equal(null);
 			expect(a).not.to.equal([]);
 			expect(a[0].A).to.equal("B");
 		});
+
+		it("can sort an array descending", async () => {
+			const o = [{"A": "B"}, {"A": "D"}, {"A": "C"}];
+			const a = await Sort.sortObjects(o, "A", true);
+			expect(a).not.to.equal(null);
+			expect(a).not.to.equal([]);
+			expect(a[0].A).to.equal("D");
+		});
 	});
 
   describe("Given quick sort", () => {
-		it("can sort an array", () => {
-			const a = Sort.quickSort(DATA);
+		it("can sort an array", async () => {
+			const a = await Sort.quickSort(DATA);
 			expect(a).not.to.equal(null);
 			expect(a).not.to.equal([]);
 			expect(a).to.deep.equal(SORTED);
@@ -26,8 +34,8 @@ describe("Given Sorting Sort", () => {
 	});
 
   describe("Given mergeSort sort", () => {
-		it("can sort an array", () => {
-			const a = Sort.mergeSort(DATA);
+		it("can sort an array", async () => {
+			const a = await Sort.mergeSort(DATA);
 			expect(a).not.to.equal(null);
 			expect(a).not.to.equal([]);
 			expect(a).to.deep.equal(SORTED);
@@ -35,8 +43,8 @@ describe("Given Sorting Sort", () => {
 	});
 
   describe("Given insertionSort sort", () => {
-		it("can sort an array", () => {
-			const a = Sort.insertionSort(DATA);
+		it("can sort an array", async () => {
+			const a = await Sort.insertionSort(DATA);
 			expect(a).not.to.equal(null);
 			expect(a).not.to.equal([]);
 			expect(a).to.deep.equal(SORTED);
@@ -44,8 +52,8 @@ describe("Given Sorting Sort", () => {
 	});
 
   describe("Given bubbleSort sort", () => {
-		it("can sort an array", () => {
-			const a = Sort.bubbleSort(DATA);
+		it("can sort an array", async () => {
+			const a = await Sort.bubbleSort(DATA);
 			expect(a).not.to.equal(null);
 			expect(a).not.to.equal([]);
 			expect(a).to.deep.equal(SORTED);
