@@ -1,5 +1,5 @@
 /**
- * Sorts an array of objects by propery in object (not a deep property)
+ * Sorts an array of objects by property in object (not a deep property)
  * @function sortObjects
  * @param {array} array The object array to sort
  * @param {object} key The property to sort by
@@ -35,8 +35,9 @@ export const mergeSort = (arr) => {
   return _merge(mergeSort(left), mergeSort(right));
 };
 
-/*
+/**
  * compare the arrays item by item and return the concatenated result
+ * @private
  */
 const _merge = (left, right) => {
   let result = [];
@@ -56,8 +57,8 @@ const _merge = (left, right) => {
 };
 
 /**
- * Quick Sort implimentation for Arrays -
- * @function QuickSort
+ * Quick Sort implementation for Arrays -
+ * @function quickSort
  * @param {Array} arr Array to Sort
  * @returns {Array} Returns a sorted array
  */
@@ -83,7 +84,7 @@ export const quickSort = (arr) => {
 /**
  * Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time.
  * It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
- * @function mergeSort
+ * @function insertionSort
  * @param {array} array The array to sort
  * @returns {array} The sorted array
  */
@@ -110,7 +111,7 @@ export const insertionSort = (unsortedList) => {
 
 /**
  * Simple sorting algorithm that repeatedly steps through the list to be sorted, compares each pair of adjacent items and swaps them if they are in the wrong order.
- * @function mergeSort
+ * @function bubbleSort
  * @param {array} array The array to sort
  * @returns {array} The sorted array
  */

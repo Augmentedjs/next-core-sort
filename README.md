@@ -12,16 +12,16 @@ Augmented.js Next Core - Sorting
     -   [Parameters](#parameters)
 -   [mergeSort](#mergesort)
     -   [Parameters](#parameters-1)
--   [mergeSort](#mergesort-1)
+-   [quickSort](#quicksort)
     -   [Parameters](#parameters-2)
--   [mergeSort](#mergesort-2)
+-   [insertionSort](#insertionsort)
     -   [Parameters](#parameters-3)
--   [QuickSort](#quicksort)
+-   [bubbleSort](#bubblesort)
     -   [Parameters](#parameters-4)
 
 ## sortObjects
 
-Sorts an array of objects by propery in object (not a deep property)
+Sorts an array of objects by property in object (not a deep property)
 
 ### Parameters
 
@@ -41,7 +41,17 @@ Split the array into halves and merge them recursively
 
 Returns **[array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The sorted array
 
-## mergeSort
+## quickSort
+
+Quick Sort implementation for Arrays -
+
+### Parameters
+
+-   `arr` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** Array to Sort
+
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** Returns a sorted array
+
+## insertionSort
 
 Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time.
 It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.
@@ -52,7 +62,7 @@ It is much less efficient on large lists than more advanced algorithms such as q
 
 Returns **[array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The sorted array
 
-## mergeSort
+## bubbleSort
 
 Simple sorting algorithm that repeatedly steps through the list to be sorted, compares each pair of adjacent items and swaps them if they are in the wrong order.
 
@@ -61,13 +71,3 @@ Simple sorting algorithm that repeatedly steps through the list to be sorted, co
 -   `array` **[array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The array to sort
 
 Returns **[array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The sorted array
-
-## QuickSort
-
-Quick Sort implimentation for Arrays -
-
-### Parameters
-
--   `arr` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** Array to Sort
-
-Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** Returns a sorted array

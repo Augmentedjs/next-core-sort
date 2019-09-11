@@ -1,6 +1,6 @@
 {
   "name": "next-core-sort",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "The Augmented.js Next - Sorting",
   "main": "dist/next-core-sort.js",
   "scripts": {
@@ -25,18 +25,16 @@
   "author": "Bob Warren <jedi.master@augmentedjs.com> (http://www.augmentedjs.com)",
   "license": "Apache-2.0",
   "devDependencies": {
-    "acorn": "^6.2.0",
-    "ajv": "^5.5.2",
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
+    "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
+    "documentation": "^12.1.2",
     "foodoc": "0.0.9",
-    "jsdoc": "^3.6.2",
-    "documentation": "^11.0.1",
-    "mocha": "^6.1.4",
-    "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5"
+    "jsdoc": "^3.6.3",
+    "mocha": "^6.2.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
   },
   "dependencies": {},
   "bugs": {
