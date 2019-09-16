@@ -16,6 +16,38 @@ export const sortObjects = (array, key, descending) => {
   });
 };
 
+export const quicksortObjects = (array, key, descending) => {
+  //if array is empty
+  if (array.length === 0) {
+    return [];
+  }
+  if (!key) {
+    return array;
+  }
+
+  let i = 1;
+  const l = array.length, left = [], right = [], pivot = array[0];
+  //go through each element in array
+  for (i = 1; i < l; i++) {
+    const current = array[i];
+    console.debug(`Compare ${pivot[key]} to ${current[key]}`);
+    if (descending) {
+      if (current[key] < pivot[key]) {
+        left.push(current);
+      } else {
+        right.push(current);
+      }
+    } else {
+      if (current[key] > pivot[key]) {
+        left.push(current);
+      } else {
+        right.push(current);
+      }
+    }
+  }
+  return quicksortObjects(left).concat(pivot, quicksortObjects(right));
+};
+
 /**
  * Split the array into halves and merge them recursively
  * @function mergeSort

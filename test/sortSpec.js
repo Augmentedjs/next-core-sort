@@ -22,6 +22,37 @@ describe("Given Sorting Sort", () => {
 			expect(a).not.to.equal([]);
 			expect(a[0].A).to.equal("D");
 		});
+
+		it("can sort an array after a push", async () => {
+			const o = [{"A": "B"}, {"A": "Z"}, {"A": "C"}, {"A": "H"}, {"A": "D"}];
+			o.push({"A": "A"});
+			o.push({"A": "X"});
+			const a = await Sort.sortObjects(o, "A", true);
+
+			//await console.debug("unsorted", o);
+			//await console.debug("sorted", a);
+
+			expect(a).not.to.equal(null);
+			expect(a).not.to.equal([]);
+			expect(a.length).to.equal(7);
+			expect(a[a.length - 1].A).to.equal("A");
+		});
+
+
+		it("can quicksort an array after a push", async () => {
+			const o = [{"A": "B"}, {"A": "Z"}, {"A": "C"}, {"A": "H"}, {"A": "D"}];
+			//o.push({"A": "A"});
+			//o.push({"A": "X"});
+			const a = await Sort.quicksortObjects(o, "A", false);
+
+			await console.debug("unsorted", o);
+			await console.debug("sorted", a);
+
+			expect(a).not.to.equal(null);
+			expect(a).not.to.equal([]);
+			expect(a.length).to.equal(5);
+			expect(a[0].A).to.equal("A");
+		});
 	});
 
   describe("Given quick sort", () => {
@@ -30,6 +61,18 @@ describe("Given Sorting Sort", () => {
 			expect(a).not.to.equal(null);
 			expect(a).not.to.equal([]);
 			expect(a).to.deep.equal(SORTED);
+		});
+
+		it("can sort an array after a push", async () => {
+			const o = DATA.slice(0);
+			o.push(0);
+			const a = await Sort.quickSort(o);
+			//await console.debug("unsorted", o);
+			//await console.debug("sorted", a);
+			expect(a).not.to.equal(null);
+			expect(a).not.to.equal([]);
+			expect(a.length).to.equal(25);
+			expect(a[a.length-1]).to.equal(34267);
 		});
 	});
 
