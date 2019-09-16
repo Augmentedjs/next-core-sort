@@ -1,6 +1,6 @@
 {
   "name": "next-core-sort",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "The Augmented.js Next - Sorting",
   "main": "dist/next-core-sort.js",
   "scripts": {
