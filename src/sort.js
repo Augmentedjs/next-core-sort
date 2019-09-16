@@ -30,22 +30,21 @@ export const quicksortObjects = (array, key, descending) => {
   //go through each element in array
   for (i = 1; i < l; i++) {
     const current = array[i];
-    console.debug(`Compare ${pivot[key]} to ${current[key]}`);
     if (descending) {
-      if (current[key] < pivot[key]) {
+      if (current[key] > pivot[key]) {
         left.push(current);
       } else {
         right.push(current);
       }
     } else {
-      if (current[key] > pivot[key]) {
+      if (current[key] < pivot[key]) {
         left.push(current);
       } else {
         right.push(current);
       }
     }
   }
-  return quicksortObjects(left).concat(pivot, quicksortObjects(right));
+  return quicksortObjects(left, key, descending).concat(pivot, quicksortObjects(right, key, descending));
 };
 
 /**
