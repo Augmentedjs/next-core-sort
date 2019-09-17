@@ -438,6 +438,19 @@ describe("Given Sorting Sort", () => {
 			expect(a[a.length - 1].A).to.equal("A");
 		});
 
+    it("can sort an array after an unshift", async () => {
+			const o = [{"A": "B"}, {"A": "Z"}, {"A": "C"}, {"A": "H"}, {"A": "D"}];
+			// await console.debug("unsorted", o);
+			o.unshift({"A": "A"});
+			o.unshift({"A": "X"});
+			const a = await Sort.sortObjects(o, "A", true);
+			// await console.debug("sorted", a);
+			expect(a).not.to.equal(null);
+			expect(a).not.to.equal([]);
+			expect(a.length).to.equal(7);
+			expect(a[a.length - 1].A).to.equal("A");
+		});
+
 		it("can objectsort a large array", async () => {
 			const a = await Sort.sortObjects(LARGE, "zindex", false);
 			expect(a).not.to.equal(null);
@@ -486,6 +499,36 @@ describe("Given Sorting Sort", () => {
       	"name": 95196
 		  });
 		});
+
+    it("can objectsort a large array after unshift", async () => {
+			const array = LARGE.slice(0);
+			array.unshift({
+				"id": 0,
+	      "latitude": 37,
+	      "longitude": -121,
+	      "name": 0,
+	      "zindex": 10
+		  });
+			const a = await Sort.sortObjects(array, "zindex", false);
+
+			expect(a).not.to.equal(null);
+			expect(a).not.to.equal([]);
+			expect(a.length).to.equal(63);
+			expect(a[0]).to.deep.equal({
+				"id": 0,
+	      "latitude": 37,
+	      "longitude": -121,
+	      "name": 0,
+	      "zindex": 10
+		  });
+			expect(a[a.length - 1]).to.deep.equal({
+				"id": 98034,
+      	"latitude": 37.331932,
+      	"longitude": -121.897661,
+      	"name": 95196
+		  });
+		});
+
 	});
 
   describe("Given quick sort", () => {
@@ -567,6 +610,36 @@ describe("Given Sorting Sort", () => {
       	"name": 95196
 		  });
 		});
+
+    it("can quicksort a large array after unshift", async () => {
+			const array = LARGE.slice(0);
+			array.unshift({
+				"id": 0,
+	      "latitude": 37,
+	      "longitude": -121,
+	      "name": 0,
+	      "zindex": 10
+		  });
+			const a = await Sort.quicksortObjects(array, "zindex", false);
+
+			expect(a).not.to.equal(null);
+			expect(a).not.to.equal([]);
+			expect(a.length).to.equal(63);
+			expect(a[0]).to.deep.equal({
+				"id": 0,
+	      "latitude": 37,
+	      "longitude": -121,
+	      "name": 0,
+	      "zindex": 10
+		  });
+			expect(a[a.length - 1]).to.deep.equal({
+				"id": 98034,
+      	"latitude": 37.331932,
+      	"longitude": -121.897661,
+      	"name": 95196
+		  });
+		});
+
 	});
 
   describe("Given mergeSort sort", () => {
